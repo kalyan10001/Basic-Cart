@@ -54,20 +54,21 @@ function showHomepage() {
 }
 
 function fetchProducts() {
-    fetch('https://fakestoreapi.com/products')
+    fetch('products.json')
         .then(response => response.json())
         .then(data => {
             let productsContainer = document.getElementById('products');
             productsContainer.innerHTML = '';
-            data.forEach(product => {
+            data.products.forEach(product => {
                 let productElement = document.createElement('div');
                 productElement.classList.add('product');
                 productElement.innerHTML = `
-                    <img src="${product.image}" alt="${product.title}">
+                    <img src="${product.image}" alt="image">
                     <div class="details">
-                        <h3>${product.title}</h3>
-                        <p>Price: $${product.price}</p>
-                    </div>
+                        <h3>${product.name}</h3>
+                        <p>Price: ₹${product.price}</p>
+                        <p>description: ₹${product.description}</p>
+                            </div>
                 `;
                 productsContainer.appendChild(productElement);
             });
@@ -97,9 +98,7 @@ window.onload = function () {
     }
 }
 
-window.addEventListener('beforeunload', function () {
-    localStorage.removeItem('loggedInUser');
-});
+
 
 
 
