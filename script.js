@@ -67,7 +67,7 @@ function fetchProducts() {
                     <div class="details">
                         <h3>${product.name}</h3>
                         <p>Price: ₹${product.price}</p>
-                        <p>description: ₹${product.description}</p>
+                        <p>description: ${product.description}</p>
                             </div>
                 `;
                 productsContainer.appendChild(productElement);

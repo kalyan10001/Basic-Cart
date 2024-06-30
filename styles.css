@@ -94,6 +94,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgb(236, 231, 224);
+    border-radius: 20px;
 }
 
 .product img {
