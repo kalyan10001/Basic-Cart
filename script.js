@@ -4,14 +4,24 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
     let email = document.getElementById('regEmail').value;
     let password = document.getElementById('regPassword').value;
     let userId = 'user_' + new Date().getTime();
-
+    let address=document.getElementById('textarea');
+    let contact=document.getElementById('phno')
     console.log('Registering User:', { userId, username, email, password });
 
     let users = JSON.parse(localStorage.getItem('users')) || [];
     users.push({ userId, username, email, password });
     localStorage.setItem('users', JSON.stringify(users));
 
-    document.getElementById('regMessage').innerText = 'Registered successfully! Your User ID: ' + userId;
+    document.getElementById('regMessage').innerHTML = "<span style='color:green;'>Registartion Successful !!</span>";
+
+   
+    document.getElementById('details').innerHTML = `
+    <div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+        <p><strong>USERNAME:</strong> ${username}</p>
+        <p><strong>CUSTOMERID:</strong> ${userId}</p>
+        <p><strong>EMAIL:</strong> ${email}</p>
+    </div>
+`;
     document.getElementById('registerForm').reset();
 });
 
