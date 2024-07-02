@@ -53,8 +53,8 @@ function showHomepage() {
     fetchProducts();
 }
 
-function fetchProducts() {
-    fetch('products.json')
+async function fetchProducts() {
+    await fetch('products.json')
         .then(response => response.json())
         .then(data => {
             let productsContainer = document.getElementById('products');
